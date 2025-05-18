@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Communication Architecture Adventure</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="scripts.js"></script>
+</head>
+<body>
+
+<header>
+  Communication Architecture Adventure
+  <div class="buttons">
+    <button class="read-aloud" onclick="readAllLayers()">🔊 Read All Layers</button>
+    <button class="read-aloud" onclick="stopReading()">⏹️ Stop Reading</button>
+  </div>
+</header>
+
+<div class="container" id="container">
+  <div class="packet packet1"></div>
+  <div class="packet packet2"></div>
+  <div class="packet packet3"></div>
+
+  <!-- Example of One Layer -->
+  <div class="layer" id="layer1">
+    <h2>🏛️ Mission Headquarters - Application Layer</h2>
+    <p id="text1">Purpose: Provides network services directly to user applications.<br> Resilience: Operates offline and syncs with internet when available for continuous learning.</p>
+    <button class="read-aloud" onclick="readAloud('text1')">🔊 Read Aloud</button>
+    <button class="find-out" onclick="showDetails('Application Layer', 'https://cdn.pixabay.com/photo/2016/06/30/15/45/web-1482920_1280.png', 'The Application Layer is the closest layer to the end-user. It provides services like web browsing, email, file transfer, and remote login. It does not create the data — it provides an interface for applications to communicate over a network.')">🔎 Find Out More</button>
+    <button class="arrow" onclick="scrollToLayer('layer2')">⬇️</button>
+  </div>
+
+  <div class="layer" id="layer2">
+    <h2>🎨 Compression Center - Presentation Layer</h2>
+    <p id="text2">Purpose: Formats, encrypts, and compresses data for transmission.<br> Resilience: Reduces data size and adapts content to local needs like isiZulu translations.</p>
+    <button class="read-aloud" onclick="readAloud('text2')">🔊 Read Aloud</button>
+    <button class="find-out" onclick="showDetails('Presentation Layer', 'https://cdn.pixabay.com/photo/2016/03/31/19/57/encryption-1296038_1280.png', 'The Presentation Layer ensures that the data sent from one device is readable by another. It translates data formats (like encryption, compression, or character encoding) so that different systems can understand each other.')">🔎 Find Out More</button>
+    <button class="arrow" onclick="scrollToLayer('layer3')">⬇️</button>
+  </div>
+
+  <div class="layer" id="layer3">
+    <h2>🚪 Gateway Checkpoint - Session Layer</h2>
+    <p id="text3">Purpose: Manages sessions and maintains ongoing communication.<br> Resilience: Auto-reconnects sessions automatically if interrupted.</p>
+    <button class="read-aloud" onclick="readAloud('text3')">🔊 Read Aloud</button>
+    <button class="find-out" onclick="showDetails('Session Layer', 'https://cdn.pixabay.com/photo/2015/06/01/08/58/server-792122_1280.jpg', 'The Session Layer establishes, manages, and ends connections between applications. It controls dialogues (sessions), keeping track of whose turn it is to transmit data, and manages authentication and reconnection if a session drops.')">🔎 Find Out More</button>
+    <button class="arrow" onclick="scrollToLayer('layer4')">⬇️</button>
+  </div>
+
+  <div class="layer" id="layer4">
+    <h2>🚚 Transport Hub - Transport Layer</h2>
+    <p id="text4">Purpose: Ensures reliable data delivery across the network.<br> Resilience: Uses TCP for reliable transport and UDP fallback for efficiency.</p>
+    <button class="read-aloud" onclick="readAloud('text4')">🔊 Read Aloud</button>
+    <button class="find-out" onclick="showDetails('Transport Layer', 'https://cdn.pixabay.com/photo/2017/01/06/19/15/network-1958939_1280.jpg', 'The Transport Layer is responsible for delivering messages between hosts. It ensures error-free, complete data transfer through protocols like TCP (reliable) or UDP (faster but less reliable), managing flow control and retransmissions if needed.')">🔎 Find Out More</button>
+    <button class="arrow" onclick="scrollToLayer('layer5')">⬇️</button>
+  </div>
+
+  <div class="layer" id="layer5">
+    <h2>🕸️ Mesh Network Zone - Network Layer</h2>
+    <p id="text5">Purpose: Directs data through multiple network paths.<br> Resilience: Redundant mesh paths allow rerouting if connections fail.</p>
+    <button class="read-aloud" onclick="readAloud('text5')">🔊 Read Aloud</button>
+    <button class="find-out" onclick="showDetails('Network Layer', 'https://cdn.pixabay.com/photo/2018/04/19/22/46/network-3331230_1280.jpg', 'The Network Layer determines the best path for data to travel from sender to receiver. It handles logical addressing (IP addresses) and routing across different networks to ensure that packets reach their destination efficiently.')">🔎 Find Out More</button>
+    <button class="arrow" onclick="scrollToLayer('layer6')">⬇️</button>
+  </div>
+
+  <div class="layer" id="layer6">
+    <h2>🛡️ Secure Wi-Fi Field - Data Link Layer</h2>
+    <p id="text6">Purpose: Facilitates node-to-node delivery with error correction.<br> Resilience: Secures communication with WPA2/WPA3 encryption protocols.</p>
+    <button class="read-aloud" onclick="readAloud('text6')">🔊 Read Aloud</button>
+    <button class="find-out" onclick="showDetails('Data Link Layer', 'https://cdn.pixabay.com/photo/2017/05/16/11/58/wi-fi-2310339_1280.png', 'The Data Link Layer establishes a reliable link between two directly connected nodes. It detects and possibly corrects errors that may occur in the Physical Layer and handles access control to the physical medium (like Wi-Fi or Ethernet).')">🔎 Find Out More</button>
+    <button class="arrow" onclick="scrollToLayer('layer7')">⬇️</button>
+  </div>
+
+  <div class="layer" id="layer7">
+    <h2>🔋 Solar Energy Station - Physical Layer</h2>
+    <p id="text7">Purpose: Handles the physical transmission of data.<br> Resilience: Solar-powered routers and battery backups maintain connectivity during outages.</p>
+    <button class="read-aloud" onclick="readAloud('text7')">🔊 Read Aloud</button>
+    <button class="find-out" onclick="showDetails('Physical Layer', 'https://cdn.pixabay.com/photo/2017/01/06/19/15/network-1958939_1280.jpg', 'The Physical Layer is concerned with transmitting raw bits over a physical medium. It includes hardware elements like cables, switches, radio signals, and electricity/optical signals that carry the data physically across distances.')">🔎 Find Out More</button>
+    <button class="arrow" onclick="scrollToLayer('layer1')">⬇️</button>
+  </div>
+
+  <!-- Duplicate structure for other layers (Presentation, Session, etc.) -->
+  
+</div>
+
+<!-- Popup Modal -->
+<div id="popup" class="hidden">
+  <div id="popup-content">
+    <span id="close" onclick="closePopup()">❌</span>
+    <h2 id="popup-title"></h2>
+    <img id="popup-image" src="" alt="Layer Image">
+    <p id="popup-summary"></p>
+  </div>
+</div>
+
+<div class="left-pane">
+    <h2>About the Project</h2>
+  
+    <h3>Introduction</h3>
+    <p>Supports digital education for Nkandla and Ntuzuma. Built on OSI model to ensure resilient, reliable access to learning even with poor infrastructure.</p>
+  
+    <h3>System Resilience Principles</h3>
+    <ul>
+      <li><strong>Redundancy:</strong> Multiple independent edge servers</li>
+      <li><strong>Fault Tolerance:</strong> Local caching for uninterrupted learning</li>
+      <li><strong>Load Balancing:</strong> Internet traffic managed smartly</li>
+      <li><strong>Disaster Recovery:</strong> Automatic backups to cloud</li>
+      <li><strong>Elasticity:</strong> Easy new node integration</li>
+      <li><strong>Security:</strong> WPA2/WPA3 encrypted connections</li>
+    </ul>
+  
+    <h3>Storyline</h3>
+    <p><strong>Thabo:</strong> Continues learning offline at home.</p>
+    <p><strong>Ms. Zama:</strong> Updates lessons on the edge servers.</p>
+    <p><strong>Joe the Technician:</strong> Maintains the network and devices.</p>
+    <p><strong>Mr. Nzimande:</strong> Reviews server reports to optimize funding.</p>
+  </div>
+
+<div class="mini-map">
+  <h3>Mini Map</h3>
+  <ul>
+    <li id="map1">🏛️ Application</li>
+    <li id="map2">🎨 Presentation</li>
+    <li id="map3">🚪 Session</li>
+    <li id="map4">🚚 Transport</li>
+    <li id="map5">🕸️ Network</li>
+    <li id="map6">🛡️ Data Link</li>
+    <li id="map7">🔋 Physical</li>
+  </ul>
+</div>
+
+<footer>Bridging the digital divide, one resilient layer at a time!</footer>
+
+<script src="scripts.js"></script>
+</body>
+</html>
